@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cupcake</title>
+<link rel="stylesheet" href="cupcakes.css">
+</link>
+<style>
+body {
+    font-family: arial, sans-serif;
+    background-color: #ddd;
+}
+
+select {
+    margin-right: 5px;
+}
+
+.container {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-family: Papyrus, fantasy;
+    color:white;
+    font-size: 40px;
+	text-align: center;
+}
+
+.product {
+    margin:10px 10px 0 0;
+    width: 220px;
+    background-color: white;
+    float: left;
+    border-style: groove;
+}
+
+.labelOrder {
+    margin: -65px 10px 0 0;
+    padding-top: 12px;
+    width: 258px;
+    height: 448px;
+    background-color: rgb(139, 0, 0);
+    float: left;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.description {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    padding-top: 20px;
+    height: 120px;
+    position: relative;
+}
+
+.price {
+    color: rgb(139, 0, 0);
+    position: absolute;
+    bottom: 20px;
+    width: 234px;
+}
+
+.priceInOrder {
+    color: rgb(139, 0, 0);
+    float: right;
+}
+
+.orderedItem {
+    border-bottom: solid thin black;
+    margin: 10px;
+    padding: 10px;
+}
+
+#orderTotal {
+    margin: -10px 10px;
+    padding: 10px;
+}
+
+img {
+    width: 234px;
+}
+
+#order {
+    height: 361px;
+    float: none;
+    clear: both;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-weight: 200;
+    font-size: 13px;
+    color: #333;
+    text-align: left;
+    padding: 5px;
+}
+
+#orderDescription {
+    font-size: 16px;
+    height: 30px;
+}
+
+#detailsForm {
+    clear: both;
+    padding: 20px;
+    background-color: rgb(139, 0, 0);
+    position: relative;
+    top: 20px;
+    width: 950px;
+    color: white;
+}
+
+input[type=text], input[type=number] {
+    text-align: right;
+    margin-right: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: orange;
+}
+
+select{
+margin-left:15px;
+}
+
+strong{
+font-weight:600;
+}
+
+label.hidden{
+display:none;
+}
+
+.spacing{
+margin-left:50px;
+}
+
+label.conditions{
+font-size:13px;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 16px;
+	margin-right:10px;
+    font-size: 15px;
+    margin-top: 100px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav .active {
+    background-color: #740000;
+    color: white;
+}
+
+.header {
+    position: fixed;
+    background: #740000;
+    font-size: 15px;
+    width: 100%;
+    height: 80px;
+    padding: 5px;
+	position:top;
+    margin-bottom: 3px;
+}
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Welcome to Westminster Cupcakes</h1>
+</div>
+<nav>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>
+</nav>
+<div class="container">
+    <div class="product">
+        <img src="strawberrymini.jpg" alt="picture of a strawberry cupcake" style="width:220px;">
+        <div class="description">
+            <label for="sQuantity" class="hidden">Quantity of Strawberry cupcakes</label>
+            <input type="text" name="sQuantity" id="sQuantity" value="0" size="2">Strawberry
+            <div class="price">£10</div>
+        </div>
+    </div>
+    <div class="product">
+        <img src="chocolatemini.jpg" alt="picture of chocolate cupcake" style="width:220px;">
+        <div class="description">
+            <label for="cQuantity" class="hidden">Quantity of chocolate cupcakes</label>
+            <input type="text" name="cQuantity" id="cQuantity" value="0" size="2">Chocolate
+            <div class="price">£8</div>
+        </div>
+    </div>
+    <div class="product">
+        <img src="vanilamini.jpg" alt="picture of vanilla cupcake" style="width:220px;">
+        <div class="description">
+            <label for="vQuantity" class="hidden">Quantity of Vanilla cupcakes</label>
+            <input type="text" name="vQuantity" id="vQuantity" value="0" size="2">Vanilla
+            <div class="price">£7</div>
+        </div>
+    </div>
+    <div class="labelOrder">Your Order:
+        <div id="orderDescription">ButterCream</div>
+        <div class="product" id="order">
+            <strong>CupCakes: </strong><br>
+            <div id="strawberryOrder" class="orderedItem">
+                <span id="strawberryQuantity">0</span>
+                x Strawberry Cupcake =
+                <span id="strawberryTotal" class="priceInOrder">0</span>
+            </div>
+            <div id="chocolateOrder" class="orderedItem">
+                <span id="chocolateQuantity">0</span>
+                x Chocolate Cupcake =
+                <span id="chocolateTotal" class="priceInOrder">0</span>
+            </div>
+            <div id="vanillaOrder" class="orderedItem">
+                <span id="vanillaQuantity">0</span>
+                x Vanilla CupCake =
+                <span id="vanillaTotal" class="priceInOrder">0</span>
+            </div>
+            <strong>Total: </strong><br>
+            £<span id="orderTotal" class="priceInOrder">0</span>
+        </div>
+    </div>
+    <div id="detailsForm">
+        <label for="name">Name: </label><input type="text" id="name" name="Name" required>
+        <span class="spacing">Size:
+            <input type="radio" name="sizeType" value="Regular" checked>
+            <label for="regular">Regular</label>
+			<input type="radio" name="sizeType" value="jumbo" value="Jumbo">
+			<label for="jumbo">Jumbo</label>
+		</span>
+		
+        <span class="spacing">
+            <label for="icingType">Icing Type:</label>
+            <select name="icingType" value="icingType">
+                <option selected="ButterCream">ButterCream</option>
+                <option selected="Fondant">Fondant</option>
+            </select>
+        </span><br><br>
+		
+        <label for="conditions" class="conditions">
+            <input type="checkbox" name="conditions" value="checked" id="conditions">
+            I have read and accept <a href="conditions.html">terms and conditions</a>
+        </label>
+		<input type="reset" value="Clear your order" id="resetOrder" />
+        <input type="button" value="Place your order" id="placeOrder"/> 
+        
+    </div>
+</div>
+</body>
+</html>
